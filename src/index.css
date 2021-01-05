@@ -1,0 +1,110 @@
+body {
+  margin: 0;
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Roboto", "Oxygen",
+    "Ubuntu", "Cantarell", "Fira Sans", "Droid Sans", "Helvetica Neue",
+    sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+body {
+  background-color: #eee;
+  position: relative;
+}
+html {
+  font-family: "Montserrat", sans-serif;
+}
+.header {
+  background-color: #f5ba15;
+  padding: 16px 32px;
+  box-shadow: 0 0 10px 0 gray;
+  display: flex;
+  justify-content: space-between;
+}
+
+.header > h1 {
+  color: #fff;
+  margin: auto 14px;
+  font-family: "McLaren", cursive;
+  font-weight: 200;
+}
+
+.note {
+  background-color: #fff;
+  width: 280px;
+  padding: 10px;
+  border-radius: 7px;
+  margin: 15px;
+  box-shadow: 0 2px 7px 0 #ccc;
+  text-align: center;
+}
+
+.note-flex {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-evenly;
+  width: 95%;
+  margin: 0 auto;
+}
+
+.note > h1 {
+  margin-bottom: 6px;
+  font-size: 1.3em;
+}
+.note > p {
+  margin-bottom: 10px;
+  font-size: 1.2em;
+}
+input,
+textarea {
+  width: 320px;
+  border: none;
+  background: transparent;
+  padding: 12px;
+  outline: none;
+  resize: none;
+}
+.createsec {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+}
+.createnote {
+  background-color: #fff;
+  width: 360px;
+  padding: 10px;
+  border-radius: 7px;
+  margin: 15px;
+  box-shadow: 0 2px 7px 0 #ccc;
+  text-align: center;
+  position: relative;
+}
+
+.but {
+  background: transparent;
+  border: none;
+  padding: 3px;
+  border-radius: 21px;
+  color: #eee;
+  width: 30px;
+  background: #f5ba15;
+  font-weight: 200;
+  font-size: 1.2rem;
+  outline: none;
+  cursor: pointer;
+  position: absolute;
+  right: 10px;
+}
+
+.notedel {
+  color: #f5ba15;
+  border: none;
+  background: transparent;
+  outline: none;
+  cursor: pointer;
+  margin-left: 200px;
+}
