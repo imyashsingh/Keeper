@@ -1,34 +1,43 @@
 import Header from "./Header";
 import Note from "./Note";
 import Createnote from "./Createnote";
-import { useState } from "react";
+import { useEffect, useState } from "react";
+import db from "./firebase";
+import firebase from "firebase";
 
 function App() {
   const [notedata, setnote] = useState([]);
 
+  useEffect(() => {
+    db.collection("allnotedata")
+      .orderBy("createdAt")
+      .onSnapshot((snap) => {
+        setnote(
+          snap.docs.map((doc) => ({
+            id: doc.id,
+            notedata: doc.data().notedata,
+          }))
+        );
+      });
+  }, []);
   function addnote(data) {
-    setnote((prev) => {
-      return [...prev, data];
+    db.collection("allnotedata").add({
+      notedata: data,
+      createdAt: firebase.firestore.FieldValue.serverTimestamp(),
     });
   }
 
   function delnote(id) {
-    setnote((prev) => {
-      let temp = [];
-      for (let i = 0; i < prev.length; i++) {
-        if (i !== id) temp.push(prev[i]);
-      }
-      return temp;
-    });
+    db.collection("allnotedata").doc(id).delete();
   }
 
-  function allnote(ele, index) {
+  function allnote(ele) {
     return (
       <Note
-        key={index}
-        title={ele.title}
-        text={ele.text}
-        id={index}
+        key={ele.id}
+        title={ele.notedata.title}
+        text={ele.notedata.text}
+        id={ele.id}
         delnote={delnote}
       />
     );
